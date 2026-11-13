@@ -1,0 +1,12 @@
+{
+  "name": "Nicholas",
+  "headline": "About",
+  "portrait": "assets/portrait.jpg",
+  "introduction": [
+  "My name is Nicholas Axel Tanujaya. I'm currently an undergraduate student at Bina Nusantara University majoring in Computer Science and Mathematics. During my undergrad, I have had the wonderful opportunity to collaborate with Prof. Haifeng Xu from the University of Chicago and Dr. Andrzej Kaczmarczyk from AGH University of Krakow.",
+  "I am broadly interested in algorithmic game theory, economics and computation, and multi-agent systems, with further interests in algorithms & complexity. A general theme in my research interests is the desire to model real-world scenarios mathematically with provable guarantees."
+  ],
+  "contactHeading": "Have a good question to explore together?",
+  "contactNote": "For research, collaboration, or a thoughtful conversation.",
+  "email": "nicholas.axel.135@gmail.com"
+}
