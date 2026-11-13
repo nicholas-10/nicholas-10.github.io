@@ -1,5 +1,5 @@
 {
-  "name": "Nicholas",
+  "name": "Nicholas Axel Tanujaya",
   "headline": "About",
   "portrait": "assets/portrait.jpg",
   "introduction": [
@@ -8,5 +8,7 @@
   ],
   "contactHeading": "Have a good question to explore together?",
   "contactNote": "For research, collaboration, or a thoughtful conversation.",
-  "email": "nicholas.axel.135@gmail.com"
+  "email": "nicholas.axel.135@gmail.com",
+  "linkedinUrl": "https://www.linkedin.com/in/nicholas-axel-tanujaya-85664b37b/",
+  "googleScholarUrl": "https://scholar.google.com/citations?user=YOUR_SCHOLAR_ID"
 }

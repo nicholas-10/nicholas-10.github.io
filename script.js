@@ -42,7 +42,6 @@
 
     function renderBio(bio) {
       document.querySelectorAll('[data-site-name]').forEach((node) => { node.textContent = bio.name; });
-      document.querySelectorAll('[data-site-initial]').forEach((node) => { node.textContent = bio.name.trim().charAt(0); });
       document.querySelector('.brand').setAttribute('aria-label', `${bio.name}, home`);
       document.title = `${bio.name} — ${bio.headline}`;
       document.querySelector('[data-bio-headline]').textContent = bio.headline;
@@ -75,11 +74,15 @@
       }
       const emailLink = document.querySelector('[data-bio-email]');
       const email = String(bio.email || '').trim();
-      emailLink.href = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ? `mailto:${email}` : '#contact';
-      emailLink.innerHTML = `${escapeHTML(email)} <span aria-hidden="true">↗</span>`;
+      if (emailLink) {
+        emailLink.href = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ? `mailto:${email}` : '#contact';
+        emailLink.innerHTML = `${escapeHTML(email)} <span aria-hidden="true">↗</span>`;
+      }
       const contactNote = document.querySelector('[data-bio-contact-note]');
-      contactNote.textContent = String(bio.contactNote || '').trim();
-      contactNote.hidden = !contactNote.textContent;
+      if (contactNote) {
+        contactNote.textContent = String(bio.contactNote || '').trim();
+        contactNote.hidden = !contactNote.textContent;
+      }
       document.querySelectorAll('[data-social-link]').forEach((link) => {
         const host = link.dataset.socialLink === 'linkedin' ? 'linkedin.com' : 'scholar.google.com';
         const profileUrl = safeProfileUrl(bio[`${link.dataset.socialLink}Url`], host);
