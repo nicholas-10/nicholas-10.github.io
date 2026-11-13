@@ -1,4 +1,5 @@
 (() => {
+  const siteAssetBase = new URL('.', document.currentScript.src);
   const menuButton = document.querySelector('.menu-toggle');
   const navigation = document.querySelector('.nav-links');
   menuButton.addEventListener('click', () => {
@@ -19,7 +20,7 @@
     } catch { return ''; }
   };
 
-  fetch('data/bio.json')
+  fetch(new URL('data/bio.json', siteAssetBase))
     .then((response) => {
       if (!response.ok) throw new Error(`Could not load data/bio.json (${response.status})`);
       return response.json();

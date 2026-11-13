@@ -1,3 +1,4 @@
+    const siteAssetBase = new URL('.', document.currentScript.src);
     const menuButton = document.querySelector('.menu-toggle');
     const navigation = document.querySelector('.nav-links');
     menuButton.addEventListener('click', () => {
@@ -35,7 +36,7 @@
       if (window.location.protocol === 'file:') {
         throw new Error('Data files cannot be fetched from file://. Start the local preview server instead.');
       }
-      const response = await fetch(new URL(path, document.baseURI));
+      const response = await fetch(new URL(path, siteAssetBase));
       if (!response.ok) throw new Error(`Could not load ${path} (${response.status})`);
       return format === 'text' ? response.text() : response.json();
     }
@@ -101,7 +102,7 @@
     function safeImageUrl(value) {
       if (!String(value || '').trim()) return '';
       try {
-        const url = new URL(value, document.baseURI);
+        const url = new URL(value, siteAssetBase);
         return ['http:', 'https:'].includes(url.protocol) ? url.href : '';
       } catch { return ''; }
     }
@@ -373,7 +374,7 @@
       console.error(error);
       const message = window.location.protocol === 'file:'
         ? 'Run sh serve.sh in the website folder and open http://localhost:8000/ to load the profile.'
-        : 'Could not load data/bio.json. Check that the site is being served from the webpage folder.';
+        : `Could not load data/bio.json beside script.js (${new URL('data/bio.json', siteAssetBase).href}). Make sure the data folder is included in the deployed site. ${error?.message || ''}`;
       document.querySelector('[data-bio-introduction]').innerHTML = `<p>${escapeHTML(message)}</p>`;
     }
 
